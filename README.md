@@ -4,7 +4,7 @@ A microservices-based Ecommerce application built with Spring Boot, MySQL, Sprin
 
 ## Features
 
-- User registration and authentication (Keycloak, Google OAuth2)
+- User registration and authentication (Keycloak, Google OAuth2, JWT)
 - Product management
 - Order management
 - RESTful APIs
@@ -12,6 +12,9 @@ A microservices-based Ecommerce application built with Spring Boot, MySQL, Sprin
 - Secure endpoints with JWT and OAuth2
 - Health and monitoring endpoints (Spring Boot Actuator)
 - Testcontainers for integration testing
+- Junit Testing
+- Integrated with Eureka Server for Service Discovery
+- RestTemplate/Feign Client for inter-service communication
 
 ## Tech Stack
 
