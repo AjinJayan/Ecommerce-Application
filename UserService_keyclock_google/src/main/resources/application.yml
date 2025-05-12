@@ -22,7 +22,7 @@ spring:
             scope: openid+profile+email
             authorization-grant-type: authorization_code
           google:
-            client-id: 853307572061-g0l3qcapg659b9bcm0ktiavjjlu4llt3.apps.googleusercontent.com
+            client-id:
             client-secret: 
         provider:
             keyclock:
