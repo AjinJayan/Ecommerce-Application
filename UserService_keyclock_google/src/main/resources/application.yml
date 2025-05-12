@@ -23,7 +23,7 @@ spring:
             authorization-grant-type: authorization_code
           google:
             client-id: 853307572061-g0l3qcapg659b9bcm0ktiavjjlu4llt3.apps.googleusercontent.com
-            client-secret: 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
+            client-secret: 
         provider:
             keyclock:
               issuer-uri: https://lemur-6.cloud-iam.com/auth/realms/productapp
