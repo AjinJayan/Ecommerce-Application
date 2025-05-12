@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>
+        Login Page
+    </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+</head>
+
+<body>
+    <div>
+        <form th:action="@{/login}" method="post">
+            <p>Enter the Credentials</p>
+            <!-- <label for="username">Username: &nbsp;</label> -->
+            <input type="text" required name="username" autofocus placeholder="Username" />
+            <input type="password" name="password" required placeholder="Password" />
+            <p>
+                Remember-me: &nbsp;
+                <input type="checkbox" name="remember-me" />
+            </p>
+
+            <input type="submit" value="Login" />
+        </form>
+    </div>
+
+</body>
+
+</html>

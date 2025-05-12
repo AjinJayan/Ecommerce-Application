@@ -1,0 +1,31 @@
+# my global config
+global:
+ scrape_interval: 15s # Set the scrape interval to every 15 seconds. Default is every 1 minute.
+ evaluation_interval: 15s # Evaluate rules every 15 seconds. The default is every 1 minute.
+# scrape_timeout is set to the global default (10s).
+# Load rules once and periodically evaluate them according to the global 'evaluation_interval'.
+rule_files:
+# - "first_rules.yml"
+# - "second_rules.yml"
+
+
+# A scrape configuration containing exactly one endpoint to scrape:
+# Here it's Prometheus itself.
+scrape_configs:
+# The job name is added as a label `job=<job_name>` to any timeseries scraped from this config.
+ - job_name: 'prometheus'
+ # metrics_path defaults to '/metrics'
+ # scheme defaults to 'http'.
+   scrape_interval: 5s
+   static_configs:
+     - targets: ['127.0.0.1:9090']
+ - job_name: 'my-spring-actuator' # This job is for telling prometheus from where it will get data # if we didn't add this,
+   #when we hit apllication endpoint it will be reflected in the micrometer endpoint (actuator/prometheus) but not visible
+   #same metrics on the Promethus and grafana (micrometer -> prometheus-> grafana is the flow of data)
+   metrics_path: '/actuator/prometheus'
+   scrape_interval: 2s # If we didn't mention it will take from the gobal value (15s)
+   static_configs:
+   - targets: ['192.168.1.12:8080'] # We have to give our ipv4 address,
+     #(because spring is running outside the docker container, we have mention our system ip and port instead of localhost)
+     labels:
+       application: "Ninjas Social Media Application"

@@ -1,0 +1,57 @@
+
+server:
+    port: 8080  
+spring:
+  application: 
+    name: user-service
+  datasource:
+    url: jdbc:mysql://localhost:3306/userServive?createDatabaseIfNotExist=true
+    username: root
+    password: Ajin2000@
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    hibernate:            
+        ddl-auto: update
+  security:
+    oauth2:
+      client:
+        registration:
+          keyclock:
+            client-id: ProductDemo
+            client-secret: Sdx4l4PGhNxazmBRjdw1EVXEEGJP8wxr
+            scope: openid+profile+email
+            authorization-grant-type: authorization_code
+          google:
+            client-id: 853307572061-g0l3qcapg659b9bcm0ktiavjjlu4llt3.apps.googleusercontent.com
+            client-secret: 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
+        provider:
+            keyclock:
+              issuer-uri: https://lemur-6.cloud-iam.com/auth/realms/productapp
+
+keycloak:
+  auth-server-url: https://lemur-6.cloud-iam.com/auth
+  realm: productapp
+  resource: ProductDemo
+  public-client: true
+  bearer-only: true
+                
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"     
+  endpoint:
+    health:
+      show-details: always        
+
+# logging:
+#   level:
+#     root: DEBUG   
+# logging:
+#   level:
+#     com:
+#       example:
+#         ecommerce: DEBUG       
+logging:
+  file:
+    name: log.log

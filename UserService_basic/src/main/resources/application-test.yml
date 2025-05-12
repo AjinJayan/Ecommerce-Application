@@ -1,0 +1,33 @@
+
+server:
+    port: 8080  
+spring:
+  application: 
+    name: user-service
+  datasource:
+    url: jdbc:h2:mem::testdb?createDatabaseIfNotExist=true
+    username: sa
+    password: 123
+    driver-class-name: org.h2.Driver
+  jpa:
+    hibernate:            
+        ddl-auto: create-drop  
+    # database-platform: org.hibernate.dialect.H2Dialect    
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"     
+  endpoint:
+    health:
+      show-details: always      
+
+# spring:
+#     datasource:
+#         url: jdbc:h2:mem::databaseName
+#         driverClassName: org.h2.Driver
+#     jpa:
+#         hibernate:            
+#             database-platform: org.hibernate.dialect.H2Dialect
+#             #show-sql: true
+#             #ddl-auto: create-drop       
